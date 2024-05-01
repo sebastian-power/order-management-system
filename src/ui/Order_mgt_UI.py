@@ -22,15 +22,15 @@ class Order_mgt_UI:
         done=False
         while not done:
             done=True
-            name= input("Enter your name. 3-10 chars. No white space chars allowed: ")
-            if len(name) <=3 or len(name)>=10:
+            name= input("Enter your name. \n Length should be between 3-10 chars (inclusive). No whitespace allowed: ")
+            if len(name) <3 or len(name)>10:
                     print("Name should be between 3-10 chars. Try again")
                     done=False
             forbidden = [' ', '\n','\r','\t','\b']
             # Check if any forbidden characters are in the name
             #'any' returns true if any of the forbidden char is in name
             if any(a_char in name for a_char in forbidden):
-                    print("You have used white space chars. Try again")
+                    print("You have used white space characters. Try again")
                     done=False
         return name
     
@@ -38,16 +38,16 @@ class Order_mgt_UI:
         done=False
         while not done:
             done=True
-            email= input("Enter your email. 6-20 chars with an @. No white space chars allowed: ")
-            if len(email) <=6 or len(email)>=20:
-                    print("Email should be between 6-20 chars. Try again")
+            email= input("Enter your email. 6-20 characters (inclusive) with an @. No white space chars allowed: ")
+            if len(email) <6 or len(email)>20:
+                    print("Email should be between 6-20 characters (inclusive). Try again")
                     done=False
             forbidden = [' ', '\n','\r','\t','\b']
             if any(a_char in email for a_char in forbidden):
-                    print("You have used white space chars. Try again")
+                    print("You have used white space characters. Try again")
                     done=False
             if email[0]=='@' or email.count('@')!=1:
-                print("An in-between @ char expected in email. Try again")
+                print("An in-between @ character expected in email. Try again")
                 done=False
         return email
  
