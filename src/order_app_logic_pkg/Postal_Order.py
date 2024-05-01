@@ -89,7 +89,7 @@ class Postal_Order(Order):
         states =Postal_Order.VALID_STATES[:len(self.past_states)]
         star_line = "-"*100+"\n"
         postal_order_header_details="Additional details for Postal Order\n"+ \
-            f"Delivery date:{self.o_delivery_date}\n" +f"Postal Order states:"  + \
+            f"Delivery date:{self.o_delivery_date}\n" + "Postal Order status:"  + \
                 " ".join(map(str,states))+"\n"
         base_order_details=super().__str__()    
         return (base_order_details+star_line+postal_order_header_details+star_line)
