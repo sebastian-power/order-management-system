@@ -9,14 +9,16 @@ from order_app_logic_pkg.Postal_Order import Postal_Order
 
 class Order_mgt_UI:
 
-    def __init__(self):
+    def __init__(self, choice):
         self.cust_name=self.get_cust_name()
         self.cust_email=self.get_cust_email()
-        #testing below: Creation of a regular Order and a Postal Order
-        #self.orders=[self.create_postal_order()]
+        #testing below: Creation of a regular Order or a Postal Order
+        if int(choice) == 1:
+            self.orders=[self.create_order()]
+        else:
+            self.orders=[self.create_postal_order()]
         
-        self.orders=[self.create_order(),self.create_postal_order()]
-        #self.orders=[self.create_postal_order()]
+        #self.orders=[self.create_order(), self.create_postal_order()]
 
     def get_cust_name(self)->type[str]:
         done=False
@@ -116,12 +118,13 @@ class Order_mgt_UI:
             
             try:
                 item_qty=int (item_qty)
+                if item_qty<0:
+                    print("You did not enter a positive integer. Try again")
+                    correct_qty=False
             except:
                     print("You did not enter an integer. Try again")
                     correct_qty=False
-            if item_qty<0:
-                print("You did not enter a positive integer. Try again")
-                correct_qty=False
+            
         
         anItem =OrderItem(item_name,item_unit_price,item_qty)
 
