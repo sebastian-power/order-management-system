@@ -10,6 +10,22 @@
 	 - 5.3 	[Bottom-up approach to development](#oms_bottomup)
  -   **6.** [Object-Orientation in OMS](#oms_object)
  -  **7.** [Input Validation in the User Interface class](#input_val)
+ -  **8.** [Formatted Output](#format_o)
+ -  **9.** [Data Dictionary](#data_dict)
+ -  **10.** [File Handling](#file_hand)
+ -  **11.** [Pseudocode](#pseudo)
+ -  **12.** [Sorting and Searching](#s_and_s)
+ -  **13.** [Messaging (modelling dynamic behaviour) in an Object-Oriented system](#messaging)
+ 	-  13.1 [Polymorphism in the OSM](#polymorph)
+ -  **14** [Code optimisation techniques for better collaboration and maintenance](#optimisation)
+ 	-  14.1 [Intrinsic and Extrinsic documentation](#docs)
+  	-  14.2 [Organisation of source code files and modules](#src_org)
+ -  **15** [Testing and Quality Assurance](#test_quality)
+   	-  15.1 [Black box testing of OMS](#black_box)
+ 		-  15.1.1 [Test Cases](#test_cases)
+		-  15.1.2 [Input-Output table for testing](#io_table)
+	- 15.2 [White box testing of OMS](#white_box)
+   
 ## Rubric + Mark Distribution
 You must design, implement, debug, test and document an Object-Oriented System. The implementation must be done in Python. You are required to work in groups of three students. If any student does not have a group, your teacher will assign the student to a group of his choice. You are required to submit both the source code and an MS Word documentation file. The minimum requirements of the system and its documentation are:
 <ol>
