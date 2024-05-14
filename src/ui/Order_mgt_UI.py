@@ -25,15 +25,15 @@ class Order_mgt_UI:
         while not done:
             done=True
             forbidden = [' ', '\n','\r','\t','\b']
-            name= input("Enter your name. \nLength should be between 3-10 chars. No whitespace allowed: ")
+            name= input("Enter your name. \nLength should be between 3-10 chars. ")
             if len(name) <3 or len(name)>10:
                     print("Name should be between 3-10 characters (inclusive). Try again")
                     done=False
             # Check if any forbidden characters are in the name
             #'any' returns true if any of the forbidden char is in name
-            elif any(a_char in name for a_char in forbidden):
-                    print("You have used white space characters. Try again")
-                    done=False
+            # elif any(a_char in name for a_char in forbidden):
+            #         print("You have used white space characters. Try again")
+            #         done=False
         return name
     
     def get_cust_email(self)->type[str]:
