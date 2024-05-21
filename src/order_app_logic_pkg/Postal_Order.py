@@ -93,4 +93,4 @@ class Postal_Order(Order):
                 " ".join(map(str,states))+"\n"
         base_order_details=super().__str__()    
         return (base_order_details+star_line+postal_order_header_details+star_line)
-        
+    
