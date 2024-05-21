@@ -9,12 +9,15 @@ class Postal_Order(Order):
     VALID_STATES = ["Initiated", "Packed", "Shipped", "Delivered"]
     def __init__(self, customer:Customer):
         super().__init__(customer)
-        one_month_from_now=(datetime.now()+timedelta(days=30))#one month from now
+
+        #cannot estimate time yet - user must finish ordering process
+        #
+        # estimated_delivery_time=(datetime.now()+timedelta(seconds=22.5))
         #i was testing it for an error, so I used the try/except. Can delete.
-        try:
-            self.o_delivery_date=one_month_from_now
-        except AttributeError:
-            print("Postal Order: Delivery date not set")   
+        # try:
+        # self.o_delivery_date=estimated_delivery_time
+        # except AttributeError:
+        #     print("Postal Order: Delivery date not set")   
 
         self.past_states=[] #not a property
         self.current_state=0#current state is, "initiated", among past states
@@ -89,8 +92,9 @@ class Postal_Order(Order):
         states =Postal_Order.VALID_STATES[:len(self.past_states)]
         star_line = "-"*100+"\n"
         postal_order_header_details="Additional details for Postal Order\n"+ \
-            f"Delivery date:{self.o_delivery_date}\n" + "Postal Order status:"  + \
+            f"Estimated Delivery date: {datetime.now() + timedelta(seconds=60)}\n" + "Postal Order status: "  + \
                 " ".join(map(str,states))+"\n"
         base_order_details=super().__str__()    
+        print(datetime.now(), "__str__")
         return (base_order_details+star_line+postal_order_header_details+star_line)
         
