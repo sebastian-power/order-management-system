@@ -14,16 +14,6 @@ class Products:
             for counter, product in enumerate(self._products_dicts)
         ]
 
-    ALL_PRODUCTS_F = [
-        {f'1. {"name":4}': f'{"Pen":25}', f'{"unit_price":10}': f"${2:4d}"},
-        {f'2. {"name":4}': f'{"Computer Disk":25}', f'{"unit_price":10}': f"${200:4d}"},
-        {
-            f'3. {"name":4}': f'{"Scientific Calculator":25}',
-            f'{"unit_price":10}': f"${100:4d}",
-        },
-        {f'4. {"name":4}': f'{"Sun Glasses":25}', f'{"unit_price":10}': f"${300:4d}"},
-    ]
-
     def get_attr(self, attr: str, item_id: int):
         return self._products_dicts[item_id-1][attr]
 
