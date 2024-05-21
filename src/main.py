@@ -15,8 +15,7 @@ if __name__ == "__main__":
     if choice == "1":
         print("Thank you for your purchase. Have a nice day.")
     else:
-        purchase_time = now.time()
-        print(purchase_time)
+        print("Thank you for your purchase. Your product will be arriving shortly.")
 
 
          
