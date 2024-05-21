@@ -108,8 +108,8 @@ class Order_mgt_UI:
                 print("Your entry was incorrect. Try again")
                 correct_choice=False
         item_id=int(choice)
-        item_name=Products.ALL_PRODUCTS[item_id-1]["name"]
-        item_unit_price=Products.ALL_PRODUCTS[item_id-1]["unit_price"]
+        item_name=p.get_attr("name", item_id)
+        item_unit_price=int(p.get_attr("unit_price", item_id))
 
         correct_qty=False
         while not correct_qty:
@@ -126,7 +126,7 @@ class Order_mgt_UI:
                     correct_qty=False
             
         
-        anItem =OrderItem(item_name,item_unit_price,item_qty)
+        anItem = OrderItem(item_name,item_unit_price,item_qty)
 
         return anItem
          

@@ -97,4 +97,4 @@ class Postal_Order(Order):
         base_order_details=super().__str__()    
         print(datetime.now(), "__str__")
         return (base_order_details+star_line+postal_order_header_details+star_line)
-        
+    
