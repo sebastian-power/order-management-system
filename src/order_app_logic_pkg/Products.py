@@ -15,7 +15,7 @@ class Products:
         ]
 
     def get_attr(self, attr: str, item_id: int):
-        return self._products_dicts[item_id-1][attr]
+        return self._products_dicts[item_id - 1][attr]
 
     def __str__(self) -> type[str]:
         star_line = "\n" + "-" * 100 + "\n"
