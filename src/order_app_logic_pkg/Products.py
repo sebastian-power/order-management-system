@@ -1,9 +1,13 @@
 import csv
+from pathlib import Path
 
 
 class Products:
     def __init__(self) -> None:
-        with open("../assets/data_files/products.csv", "r") as products:
+        products_path = [i for i in Path(__file__).resolve().parents][2].joinpath(
+            str(Path("assets/data_files/products.csv"))
+        )
+        with open(str(products_path), "r") as products:
             reader = csv.DictReader(products)
             self._products_dicts = [row for row in reader]
         self._products_string = [
@@ -15,7 +19,7 @@ class Products:
         ]
 
     def get_attr(self, attr: str, item_id: int):
-        return self._products_dicts[item_id-1][attr]
+        return self._products_dicts[item_id - 1][attr]
 
     def __str__(self) -> type[str]:
         star_line = "\n" + "-" * 100 + "\n"

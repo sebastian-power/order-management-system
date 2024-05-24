@@ -1,5 +1,6 @@
-from datetime import date
-from datetime import datetime
+from datetime import date, datetime
+
+
 class Customer:
     this_year = datetime.now().year
     cust_id_base =  "Cust_"+str(this_year)
@@ -14,27 +15,28 @@ class Customer:
         self.customer_pwd=customer_pwd
        
     @property
-    def cust_id(self)->type[str]:   
-        return self._cust_id      
-    
+    def cust_id(self) -> type[str]:
+        return self._cust_id
+
     @cust_id.setter
-    def cust_id(self, customer_num:type[str]):
-        self._cust_id=Customer.cust_id_base+'_'+customer_num 
-        
-    @property
-    def customer_name(self)->type[str]:        
-        return self._customer_name
-    
-    @customer_name.setter
-    def customer_name(self,customer_name:type[str]):
-        if customer_name!=None and customer_name!="":
-            self._customer_name=customer_name
+    def cust_id(self, customer_num: type[str]):
+        self._cust_id = Customer.cust_id_base + "_" + customer_num
 
     @property
-    def customer_email(self)->type[str]:        
+    def customer_name(self) -> type[str]:
+        return self._customer_name
+
+    @customer_name.setter
+    def customer_name(self, customer_name: type[str]):
+        if customer_name is not None and customer_name != "":
+            self._customer_name = customer_name
+
+    @property
+    def customer_email(self) -> type[str]:
         return self._customer_email
-    
+
     @customer_email.setter
+
     def customer_email(self,customer_email:type[str]):
         if customer_email!=None and len(customer_email)>=6 and "@" in customer_email:
             self._customer_email=customer_email
