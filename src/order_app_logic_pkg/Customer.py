@@ -6,11 +6,12 @@ class Customer:
     cust_num=0 #ideally this should be initialized from a file
 
      
-    def __init__(self,customer_name:type[str], customer_email:type[str]):
+    def __init__(self,customer_name:type[str], customer_email:type[str],customer_pwd:type[str]):
         Customer.cust_num +=1
         self.cust_id=str(Customer.cust_num)
         self.customer_email=customer_email
         self.customer_name=customer_name
+        self.customer_pwd=customer_pwd
        
     @property
     def cust_id(self)->type[str]:   
@@ -38,7 +39,15 @@ class Customer:
         if customer_email!=None and len(customer_email)>=6 and "@" in customer_email:
             self._customer_email=customer_email
 
-
+    def view_my_orders(self):
+        pass
+        #search in databases for orders belonging to this customer
+        #for each order found, call print_order(order_type)
+    
+    def print_orders(order_type):
+        pass
+        #if order: print using order.py method
+        #if postal_order: print using postal_order.py method
         
     def __str__(self)->type[str]:
         return ("Customer details are:\n"+\
