@@ -26,7 +26,7 @@ class Customer:
 
     @customer_name.setter
     def customer_name(self, customer_name: type[str]):
-        if customer_name != None and customer_name != "":
+        if customer_name is not None and customer_name != "":
             self._customer_name = customer_name
 
     @property
@@ -36,7 +36,7 @@ class Customer:
     @customer_email.setter
     def customer_email(self, customer_email: type[str]):
         if (
-            customer_email != None
+            customer_email is not None
             and len(customer_email) >= 6
             and "@" in customer_email
         ):

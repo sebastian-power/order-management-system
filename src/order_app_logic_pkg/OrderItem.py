@@ -11,7 +11,7 @@ class OrderItem:
 
     @name.setter
     def name(self, name: type[str]):
-        if name != None and name != "":
+        if name is not None and name != "":
             self._name = name
 
     @property

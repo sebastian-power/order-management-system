@@ -23,7 +23,7 @@ class Order_mgt_UI:
         done = False
         while not done:
             done = True
-            forbidden = [" ", "\n", "\r", "\t", "\b"]
+            # forbidden = [" ", "\n", "\r", "\t", "\b"]
             name = input("Enter your name. \nLength should be between 3-10 chars. ")
             if len(name) < 3 or len(name) > 10:
                 print("Name should be between 3-10 characters (inclusive). Try again")
@@ -121,7 +121,7 @@ class Order_mgt_UI:
                 if item_qty < 0:
                     print("You did not enter a positive integer. Try again")
                     correct_qty = False
-            except:
+            except ValueError:
                 print("You did not enter an integer. Try again")
                 correct_qty = False
 

@@ -7,7 +7,7 @@ if __name__ == "__main__":
     choice = 0
     while choice != "1" and choice != "2" and choice != "3":
         choice = input(
-            "Would you like to:\n(1): Create a store order \n(2): Create a postal order?\n(3): Sign in as an admin?\n"
+            "Would you like to:\n(1): Create a store order \n(2): Create a postal order?\n(3): Sign in as an admin?\n(4): Sign in as a customer?\n"
         )
     o_ui = Order_mgt_UI(choice)
 

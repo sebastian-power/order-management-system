@@ -1,9 +1,13 @@
 import csv
+from pathlib import Path
 
 
 class Products:
     def __init__(self) -> None:
-        with open("../assets/data_files/products.csv", "r") as products:
+        products_path = [i for i in Path(__file__).resolve().parents][2].joinpath(
+            str(Path("assets/data_files/products.csv"))
+        )
+        with open(str(products_path), "r") as products:
             reader = csv.DictReader(products)
             self._products_dicts = [row for row in reader]
         self._products_string = [
