@@ -48,7 +48,7 @@ class Customer:
         ):
             self._customer_email = customer_email
 
-    def view_my_orders(self):
+    def search_my_orders(self):
         pass
         # search in databases for orders belongingto this customer
         # for each order found, call print_order(order_type)

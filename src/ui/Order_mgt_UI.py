@@ -11,6 +11,7 @@ class Order_mgt_UI:
         # Get a mode(admin or customerc)
         self.cust_name = self.get_cust_name()
         self.cust_email = self.get_cust_email()
+        self.cust_pwd = self.get_cust_pwd()
         # testing below: Creation of a regular Order or a Postal Order
         if int(choice) == 1:
             self.orders = [self.create_order()]
@@ -54,8 +55,24 @@ class Order_mgt_UI:
                 done = False
         return email
 
+    def get_cust_pwd(self) -> type[str]:
+        done = False
+        while not done:
+            done = True
+            # forbidden = [" ", "\n", "\r", "\t", "\b"]
+            name = input("Enter your password. \nLength should be between 5-20 chars. ")
+            if len(name) < 5 or len(name) > 20:
+                print("Password should be between 5-20 characters (inclusive). Try again")
+                done = False
+            # Check if any forbidden characters are in the name
+            #'any' returns true if any of the forbidden char is in name
+            # elif any(a_char in name for a_char in forbidden):
+            #         print("You have used white space characters. Try again")
+            #         done=False
+        return name
+
     def create_postal_order(self) -> Postal_Order:
-        a_customer = Customer(self.cust_name, self.cust_email)
+        a_customer = Customer(self.cust_name, self.cust_email, self.cust_pwd)
         a_postal_order = Postal_Order(a_customer)
         done = False
         while not done:
@@ -75,7 +92,7 @@ class Order_mgt_UI:
 
     def create_order(self) -> Order:
 
-        a_customer = Customer(self.cust_name, self.cust_email)
+        a_customer = Customer(self.cust_name, self.cust_email, self.cust_pwd)
         an_order = Order(a_customer)
         done = False
         while not done:
