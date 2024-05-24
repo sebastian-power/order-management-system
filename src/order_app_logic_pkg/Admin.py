@@ -1,6 +1,3 @@
-from datetime import date
-from datetime import datetime
-
 from .Customer import Customer
 
 class Admin(Customer):
