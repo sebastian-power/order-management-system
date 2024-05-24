@@ -50,7 +50,7 @@ class Customer:
 
     def view_my_orders(self):
         pass
-        # search in databases for orders belonging to this customer
+        # search in databases for orders belongingto this customer
         # for each order found, call print_order(order_type)
 
     def print_orders(order_type):
