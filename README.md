@@ -131,6 +131,11 @@ Object-oriented programming is popular because it enables the evaluation of exis
 ## 7. Input Validation in the User Interface<a name="input_val"></a>
 Validating user input on the client side saves valuable maintenance time. This section explains how validation is incorporated when an Order_Item is ordered in an Order. A snippet of the code is provided in Figure 8, and the corresponding runtime interactive output statement is shown in Figure 9. Observe that a list of available products is first displayed, and then a choice is presented to the user to select an item number rather than asking the user to enter the item's name, which is more error-prone. In addition, the code checks for negative values and runtime errors if the user wrongly inputs non-numeric values for the item quantity. Similarly, input validation is performed for other inputs but is not illustrated here for space brevity. Please see the code in the appendix for complete details.
 ![image](https://github.com/sebastian-power/order-management-system/assets/52031320/b7638213-699d-4880-8032-6eee66245e91)
+
+We have also used input validation when checking the email of the usesr. The email must be between 6 and 20 characters, and must not include whitesepace. It must also contain an @ symbol within the email (not at the start or end) just like real emails.
+<img width="707" alt="Screenshot 2024-05-28 at 09 23 38" src="https://github.com/sebastian-power/order-management-system/assets/140695410/2af8f26d-187f-4609-81b1-6da2ff2f35a7">
+
+
 <i>Figure 8: Code snippet for validation during input of an Order_Item</i>
 ![image](https://github.com/sebastian-power/order-management-system/assets/52031320/5c426f10-4452-43e8-8574-3883e09e1445)
 <i>Figure 9: Runtime example of input validation for Order_Item</i>
