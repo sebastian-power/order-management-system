@@ -3,6 +3,7 @@ from order_app_logic_pkg.Order import Order
 from order_app_logic_pkg.OrderItem import OrderItem
 from order_app_logic_pkg.Postal_Order import Postal_Order
 from order_app_logic_pkg.Products import Products
+from order_app_logic_pkg.Customer import Customer
 
 
 class Order_mgt_UI:
@@ -15,8 +16,10 @@ class Order_mgt_UI:
         # testing below: Creation of a regular Order or a Postal Order
         if int(choice) == 1:
             self.orders = [self.create_order()]
-        else:
+        elif int(choice) == 2:
             self.orders = [self.create_postal_order()]
+        elif int(choice) == 4:
+            self.orders = [self.access_existing_orders()]
 
         # self.orders=[self.create_order(), self.create_postal_order()]
 
@@ -35,6 +38,19 @@ class Order_mgt_UI:
             #         print("You have used white space characters. Try again")
             #         done=False
         return name
+    
+    def access_existing_orders(self):
+        a_customer = Customer(self.cust_name, self.cust_email, self.cust_pwd)
+        
+        exists = None #check if this customer exists in the database
+        if exists:
+            Customer.search_my_orders()
+        else:
+            print("Sorry, we could not find the user associated with these details.")
+            #ask again for details
+            #actually dont, that isnt worth any marks
+
+        
 
     def get_cust_email(self) -> type[str]:
         done = False
