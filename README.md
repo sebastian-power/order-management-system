@@ -67,9 +67,9 @@ This structured approach ensures a comprehensive and systematic development of t
 ## 2. Context Diagram<a name="context"></a>
 The interactions between the end user and the order management system can be depicted via a context diagram, as shown below in Figure 2. Further details of the context diagram are not shown to keep this document brief wherever possible.
 
-![image](https://github.com/sebastian-power/order-management-system/assets/52031320/ef87dcf8-fb60-491c-8f48-564e14088033)
+![Coolest Context Diagram you've ever seen](https://github.com/sebastian-power/order-management-system/blob/main/assets/images/Order%20Management%20System%20High%20Level%20Context%20Diagram.jpg)
 
-<i>Figure 2: Context Diagram</i>
+<i>Figure 2: Context Diagram (NEW)</i>
 
 ## 3. User Stories<a name="stories"></a>
 User Stories are typically used in Agile frameworks to articulate how each software feature will add value to the user. Each user story is the smallest unit of work in an agile framework and has the following structure:
