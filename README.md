@@ -83,6 +83,28 @@ An incomplete set of user stories for the OMS are provided below. <i>Note: Your 
 	<li>As a Sales Officer, I want to create an order on behalf of my customer so that I can keep my customers happy.</li>
 	<li>As a customer, I need to get a sorted report based on the order dates of all my previous orders so that I can view them offline.</li>
 	<li>As a customer, I want to change the details of an order before its submission so that I can manage my budget better.</li>
+ <li>NEW USER STORIES BELOW</li>
+
+
+As a Customer, I want to be able to select an item to order and purchase it, So that I can receive and use the item 
+
+As a Customer, 
+I want to be able to search for my order in a list of other orders
+So that I can receive information about the order and/or update the order
+
+As a Customer, 
+I want to be able to choose between a store and postal order and be provided information about delivery dates for the latter.
+So that I can experience the utmost convenience and stay informed about the delivery status of my order.
+
+Manager: 
+As a Manager,
+I want to be able to add/remove products from the product list, 
+So that we can provide an up-to-date list of products for our customers
+
+As a Manager, 
+I want to be able to view all of the pending orders in the system, 
+So that I can keep track of the orders and ensure that all orders are fulfilled
+
 </ol>
 
 ## 4. Project Plan<a name="plan"></a>
