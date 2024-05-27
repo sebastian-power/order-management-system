@@ -74,36 +74,23 @@ The interactions between the end user and the order management system can be dep
 ## 3. User Stories<a name="stories"></a>
 User Stories are typically used in Agile frameworks to articulate how each software feature will add value to the user. Each user story is the smallest unit of work in an agile framework and has the following structure:
 “As a [person], I [want to], [so that].”  
-An incomplete set of user stories for the OMS are provided below. <i>Note: Your actual report should have a complete list of user stories</i>:
-<ol>
-	<li>As an IT literate Customer, I want to create an Order using my PC so that I can save time travelling to the shop</li>
-	<li>As an aged customer, I want to create a Postal Order so that the order can be delivered to my address.</li>
-	<li>As a Postal Order customer, I want to track the status of my order so that I can be sure it is delivered at home.</li>
-	<li>As a recurring customer, I want to be able to search for an Order from previous histories so that I can submit my expenses to my accountant at any time.</li>
-	<li>As a Sales Officer, I want to create an order on behalf of my customer so that I can keep my customers happy.</li>
-	<li>As a customer, I need to get a sorted report based on the order dates of all my previous orders so that I can view them offline.</li>
-	<li>As a customer, I want to change the details of an order before its submission so that I can manage my budget better.</li>
- <li>NEW USER STORIES BELOW</li>
 
+As a sales manager, I want to be able to view all the products that are ordered so I know which ones are the most popular.
 
-As a Customer, I want to be able to select an item to order and purchase it, So that I can receive and use the item 
+As a Customer, I want to be able to search for my existing orders so that I can receive information about the order and/or update the order.
 
-As a Customer, 
-I want to be able to search for my order in a list of other orders
-So that I can receive information about the order and/or update the order
+As a Postal Order customer, I want to track the status of my order so that I can be sure it is delivered at home.
 
-As a Customer, 
-I want to be able to choose between a store and postal order and be provided information about delivery dates for the latter.
+As a Customer with a busy schedule, I want to be able to choose between a store and postal order and be provided information about delivery dates for the latter.
 So that I can experience the utmost convenience and stay informed about the delivery status of my order.
 
-Manager: 
-As a Manager,
-I want to be able to add/remove products from the product list, 
-So that we can provide an up-to-date list of products for our customers
+As a customer without a mouse, I want to be able to utilise my keyboard while interfacing with a CLI to order my products. This is preffereble to a GUI because I have an unresponsive trackpad.
 
-As a Manager, 
-I want to be able to view all of the pending orders in the system, 
-So that I can keep track of the orders and ensure that all orders are fulfilled
+As an elderly customer, I want to be able to order postal orders to be as convenient as store orders so that I am not discriminated against for my age.
+
+As a Manager, I want to be able to add/remove products from the product list, so that we can provide an up-to-date list of products for our customers
+
+As a Manager, I want to be able to view all of the pending orders in the system, so that I can keep track of the orders and ensure that all orders are fulfilled
 
 </ol>
 
