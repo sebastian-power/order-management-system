@@ -1,4 +1,4 @@
-from datetime import date, datetime
+from datetime import datetime
 
 
 class Customer:
@@ -42,7 +42,7 @@ class Customer:
     @customer_email.setter
     def customer_email(self, customer_email: type[str]):
         if (
-            customer_email != None
+            customer_email is not None
             and len(customer_email) >= 6
             and "@" in customer_email
         ):
