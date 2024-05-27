@@ -53,7 +53,7 @@ class Customer:
         # search in databases for orders belonging to this customer
         # for each order found, call print_order(order_type)
 
-    def print_orders(order_type):
+    def print_orders(order):
         pass
         # if order: print using order.py method
         # if postal_order: print using postal_order.py method
