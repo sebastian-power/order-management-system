@@ -259,6 +259,17 @@ Intrinsic documentation exists within the code and directly relates to its reada
 ```
 ### 14.2 Organization of source code files and modules<a name="src_org"></a>
 Organising the project files and assets into appropriate directories is crucial for maintaining a clean and efficient codebase. The directory structure of the OMS project is as follows:
+
+!!! INSERT DIAGRAM OF THE STRUCTURE OF THE DOCUMENT HERE!!!
+!!! INSERT DIAGRAM OF THE STRUCTURE OF THE DOCUMENT HERE!!!
+!!! INSERT DIAGRAM OF THE STRUCTURE OF THE DOCUMENT HERE!!!
+!!! INSERT DIAGRAM OF THE STRUCTURE OF THE DOCUMENT HERE!!!
+!!! INSERT DIAGRAM OF THE STRUCTURE OF THE DOCUMENT HERE!!!
+REMOVE THIS!!!!
+|
+|
+|
+V
 ![image](https://github.com/sebastian-power/order-management-system/assets/52031320/0aa6008a-46c0-40a9-8413-f13bb97bfdf3)
 Note that some of the directories are empty, but the available structure makes it easy to locate where, for example, a Products_DB.py or a products.txt file should be placed.
 Note: Python can throw ModuleNotFoundError or an import error if the import statements are not correctly specified when the source file(s) need to import another module (s). A module is a Python file only when another file imports it. Moreover, a module may use relative import or absolute import. The advantages of relative imports are conciseness and the ability to rearrange the paths of large packages without editing the paths to the sub-packages. However, relative imports are only sometimes as readable as absolute ones.  For more information on the difference between relative and absolute imports, read Absolute and Relative Imports in Python - GeeksforGeeks.
