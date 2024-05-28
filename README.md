@@ -20,6 +20,7 @@
  -  **14** [Code optimisation techniques for better collaboration and maintenance](#optimisation)
  	-  14.1 [Intrinsic and Extrinsic documentation](#docs)
   	-  14.2 [Organisation of source code files and modules](#src_org)
+  	-  14.3 [Github commiting policy](#git_policy)
  -  **15** [Testing and Quality Assurance](#test_quality)
    	-  15.1 [Black box testing of OMS](#black_box)
  		-  15.1.1 [Test Cases](#test_cases)
@@ -263,8 +264,8 @@ Note that some of the directories are empty, but the available structure makes i
 Note: Python can throw ModuleNotFoundError or an import error if the import statements are not correctly specified when the source file(s) need to import another module (s). A module is a Python file only when another file imports it. Moreover, a module may use relative import or absolute import. The advantages of relative imports are conciseness and the ability to rearrange the paths of large packages without editing the paths to the sub-packages. However, relative imports are only sometimes as readable as absolute ones.  For more information on the difference between relative and absolute imports, read Absolute and Relative Imports in Python - GeeksforGeeks.
 The import statements in the various files for the given directory structure in the OMS project are provided in the above directory structure to illustrate how the relative and absolute imports were used.  
 
-### 14.3 Github policies<a name="src_org"></a>
-It was strong policy that nobody commit to main, ever, under any circumstances, even for small changes, no matter what, come hell or high water, come rain or shine, for love or money, till the cows come home, until pigs fly, under pain of death, do or die, in sickness and in health, through thick and thin, over my dead body, when hell freezes over, till kingdom come, come what may, against all odds, in a New York minute, until the end of time, by hook or by crook, in a pig's eye, by the skin of your teeth, for all the tea in China, when the stars align, till the last dog dies, and especially not Oliver. This was to ensure that there would be less merge errors.
+### 14.3 Github policies<a name="git_policy"></a>
+It was strong policy that nobody commit to main, ever, under any circumstances, even for small changes, no matter what, come hell or high water, come rain or shine, for love or money, till the cows come home, until pigs fly, under pain of death, do or die, in sickness and in health, through thick and thin, over my dead body, when hell freezes over, till kingdom come, come what may, against all odds, in a New York minute, until the end of time, by hook or by crook, in a pig's eye, by the skin of your teeth, for all the tea in China, when the stars align, till the last dog dies, and especially not Oliver or James. <s>Seb can push to main whenever he feels like, for some reason.</s> This was to ensure that there would be less merge errors.
 
 Programmers also always pulled from main immediately before pushing to ensure no merge conflicts.
 ## 15. Testing and Quality Assurance<a name="test_quality"></a>
