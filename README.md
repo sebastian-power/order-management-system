@@ -261,14 +261,25 @@ Intrinsic documentation exists within the code and directly relates to its reada
 Organising the project files and assets into appropriate directories is crucial for maintaining a clean and efficient codebase. The directory structure of the OMS project is as follows:
 
 !!! INSERT DIAGRAM OF THE STRUCTURE OF THE DOCUMENT HERE!!!
+
 !!! INSERT DIAGRAM OF THE STRUCTURE OF THE DOCUMENT HERE!!!
+
 !!! INSERT DIAGRAM OF THE STRUCTURE OF THE DOCUMENT HERE!!!
+
 !!! INSERT DIAGRAM OF THE STRUCTURE OF THE DOCUMENT HERE!!!
+
 !!! INSERT DIAGRAM OF THE STRUCTURE OF THE DOCUMENT HERE!!!
+
+
+
 REMOVE THIS!!!!
+
 |
+
 |
+
 |
+
 V
 ![image](https://github.com/sebastian-power/order-management-system/assets/52031320/0aa6008a-46c0-40a9-8413-f13bb97bfdf3)
 Note that some of the directories are empty, but the available structure makes it easy to locate where, for example, a Products_DB.py or a products.txt file should be placed.
