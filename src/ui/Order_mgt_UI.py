@@ -3,6 +3,7 @@ from order_app_logic_pkg.Order import Order
 from order_app_logic_pkg.OrderItem import OrderItem
 from order_app_logic_pkg.Postal_Order import Postal_Order
 from order_app_logic_pkg.Products import Products
+from db_app_logic.Order_DB import Order_DB
 
 
 class Order_mgt_UI:
@@ -11,6 +12,7 @@ class Order_mgt_UI:
         # Get a mode(admin or customerc)
         self.cust_name = self.get_cust_name()
         self.cust_email = self.get_cust_email()
+        self.db_manager = Order_DB()
         self.cust_pwd = self.get_cust_pwd()
         # testing below: Creation of a regular Order or a Postal Order
         if int(choice) == 1:
@@ -88,6 +90,9 @@ class Order_mgt_UI:
                     correct_more = False
             if more in ["Y", "y"]:
                 done = False
+        a_postal_order.set_delivery_date()
+        self.db_manager.add_order_to_db(a_postal_order)
+        self.db_manager.add_customer_to_db(a_postal_order.customer)
         return a_postal_order
 
     def create_order(self) -> Order:
@@ -108,6 +113,7 @@ class Order_mgt_UI:
                     correct_more = False
             if more in ["Y", "y"]:
                 done = False
+        self.db_manager.add_order_to_db(an_order)
         return an_order
 
     def create_order_item(self) -> OrderItem:

@@ -1,5 +1,6 @@
 from datetime import date, datetime
 
+
 from .Customer import Customer
 from .OrderItem import OrderItem
 
@@ -10,7 +11,7 @@ class Order:
 
     def __init__(self, customer: Customer):
         Order.order_num += 1
-        self.order_id = str(Order.order_num)
+        # self.order_id = 1 return order_id from db
         self.customer = customer
         self.order_date = datetime.now()
         self.items = []  # Initialize an empty list to store order items
