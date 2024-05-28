@@ -165,6 +165,85 @@ function has_partial_valid_state_sequence(states, valid_sequence):
         RETURN “valid” 
 END
 ```
+Another example of psuedocode is:
+```function get_cust_email():
+    # Initialize a flag to control the loop
+    done = False
+    
+    # Loop until a valid email is provided
+    WHILE done is False:
+        # Assume the email is valid unless proven otherwise
+        done = True
+        
+        # Define a list of forbidden whitespace characters
+        forbidden = [" ", "\n", "\r", "\t", "\b"]
+        
+        # Prompt the user to enter their email address
+        email = INPUT("Enter your email. \n6-20 characters with an @. No white space chars allowed: ")
+        
+        # Check if the email length is less than 6 or greater than 20 characters
+        IF length of email < 6 OR length of email > 20 THEN
+            # Inform the user about the invalid length and set done to False
+            PRINT "Email should be between 6-20 characters. Try again"
+            done = False
+        # Check if the email contains any forbidden whitespace characters
+        ELSE IF any character in forbidden is in email THEN
+            # Inform the user about the forbidden characters and set done to False
+            PRINT "You have used white space characters. Try again"
+            done = False
+        # Check if the email starts or ends with '@', or if it doesn't contain exactly one '@'
+        ELSE IF email[0] is "@" OR email contains not exactly one "@" OR email[-1] is "@" THEN
+            # Inform the user about the incorrect '@' usage and set done to False
+            PRINT "An in-between @ character expected in email. Try again"
+            done = False
+    # End the loop when a valid email is entered
+    ENDWHILE
+    
+    # Return the valid email
+    RETURN email
+END FUNCTION
+
+```
+Purpose:
+The get_cust_email function is designed to prompt the user to enter a valid email address. The function ensures that the email address meets specific criteria before accepting it. The email address must be between 6 and 20 characters long, contain exactly one "@" symbol, and not include any whitespace characters. If the input does not meet these criteria, the user is prompted to try again.
+
+Parameters:
+None: This function does not take any parameters.
+Returns:
+email (string): A valid email address entered by the user.
+Procedure:
+Initialization:
+
+Set done to False to initiate the loop for user input.
+Input Loop:
+
+Use a WHILE loop that continues until done is True.
+User Prompt:
+
+Prompt the user to enter an email address with the message: "Enter your email. \n6-20 characters with an @. No white space chars allowed: ".
+
+Validation:
+
+Check if the length of the email is less than 6 or greater than 20 characters:
+
+If true, print "Email should be between 6-20 characters. Try again" and set done to False.
+
+Check if the email contains any forbidden characters (whitespace characters):
+
+If true, print "You have used white space characters. Try again" and set done to False.
+
+Check if the email starts with "@", does not contain exactly one "@", or ends with "@":
+
+If any condition is true, print "An in-between @ character expected in email. Try again" and set done to False.
+
+Loop Termination:
+
+The loop continues until a valid email is entered, where all the conditions above are false, setting done to True.
+
+Return:
+
+Return the valid email address.
+
 Similarly, you must identify all other complex algorithms in each class and write their pseudocode in this section.
 ## 12. Sorting and Searching<a name="s_and_s"></a>
 <s>Sorting and searching are some of the ubiquitous operations in Information Systems. They are frequently used in order management systems to search for a product among thousands of products, sort the items in an order based on the price or the product's name, etc. Several types of searching and sorting algorithms are used in information systems, and each type's efficiency varies. The HSC exams typically contain questions on sorting and searching. However, this document does not contain any scoring algorithms. Please add a sorting algorithm in the Order class to sort all orders based on each item's product name or price. Alternatively, add a sorting algorithm in a new class that manages all orders. Since the sorting algorithms are standard, you must illustrate that you can adapt them for a specific purpose.</s>
