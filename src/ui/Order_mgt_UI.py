@@ -4,6 +4,7 @@ from order_app_logic_pkg.OrderItem import OrderItem
 from order_app_logic_pkg.Postal_Order import Postal_Order
 from order_app_logic_pkg.Products import Products
 from db_app_logic.Order_DB import Order_DB
+from order_app_logic_pkg.Admin import Admin
 
 
 class Order_mgt_UI:
@@ -19,6 +20,9 @@ class Order_mgt_UI:
             self.orders = [self.create_order()]
         elif int(choice) == 2:
             self.orders = [self.create_postal_order()]
+        elif int(choice) == 3:
+            pass
+            # self.adminUI()
         elif int(choice) == 4:
             self.orders = [self.access_existing_orders()]
 
@@ -166,3 +170,6 @@ class Order_mgt_UI:
         anItem = OrderItem(item_name, item_unit_price, item_qty)
 
         return anItem
+    
+    # def adminUI(self):
+    #     self.admin = Admin()
