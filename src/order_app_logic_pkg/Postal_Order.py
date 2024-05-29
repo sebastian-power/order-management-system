@@ -26,13 +26,10 @@ class Postal_Order(Order):
     def o_delivery_date(self) -> datetime:
         return self._o_delivery_date
 
-    @o_delivery_date.setter
-    def o_delivery_date(self, d_date: datetime):
+    def set_delivery_date(self):
         current_date = datetime.now()
         new_date = current_date + timedelta(days=30)
-        # delivery date should be within 1 month from now
-        if new_date >= d_date >= current_date:
-            self._o_delivery_date = d_date
+        self._o_delivery_date = new_date
 
     @property
     def current_state(self) -> type[int]:
