@@ -91,8 +91,8 @@ class Order_mgt_UI:
             if more in ["Y", "y"]:
                 done = False
         a_postal_order.set_delivery_date()
-        self.db_manager.add_order_to_db(a_postal_order)
-        self.db_manager.add_customer_to_db(a_postal_order.customer)
+        a_postal_order.customer.cust_id = self.db_manager.add_customer_to_db(a_postal_order.customer)
+        a_postal_order.order_id = self.db_manager.add_order_to_db(a_postal_order)
         return a_postal_order
 
     def create_order(self) -> Order:

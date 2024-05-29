@@ -24,7 +24,7 @@ class Customer:
 
     @cust_id.setter
     def cust_id(self, customer_num: type[str]):
-        self._cust_id = Customer.cust_id_base + "_" + customer_num
+        self._cust_id = customer_num
 
     @property
     def customer_name(self) -> type[str]:

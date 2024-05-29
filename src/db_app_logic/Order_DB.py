@@ -31,9 +31,9 @@ class Order_DB:
         for item in order.items:
             self.i_qtys += f"{item.qty},"
         if isinstance(order, Postal_Order):
-            statement = """INSERT INTO orders (order_date, customer_name, customer_email, order_items, item_price, item_qty, est_delivery, order_status) VALUES (?,?,?,?,?,?,?,?)"""
+            statement = """INSERT INTO orders (order_date, customer_id, order_items, item_price, item_qty, est_delivery, order_status) VALUES (?,?,?,?,?,?,?)"""
         elif isinstance(order, Order):
-            statement = """INSERT INTO orders (order_date, customer_name, customer_email, order_items, item_price, item_qty) VALUES (?,?,?,?,?,?)"""
+            statement = """INSERT INTO orders (order_date, customer_id, order_items, item_price, item_qty) VALUES (?,?,?,?,?)"""
 
         with sqlite3.connect(self.dbpath) as conn:
             cursor = conn.cursor()
@@ -42,8 +42,7 @@ class Order_DB:
                     statement,
                     (
                         str(order.order_date),
-                        order.customer.customer_name,
-                        order.customer.customer_email,
+                        order.customer.cust_id,
                         self.i_names,
                         self.i_prices,
                         self.i_qtys,
@@ -57,8 +56,7 @@ class Order_DB:
                     statement,
                     (
                         str(order.order_date),
-                        order.customer.customer_name,
-                        order.customer.customer_email,
+                        order.customer.cust_id,
                         self.i_names,
                         self.i_prices,
                         self.i_qtys,
@@ -67,8 +65,13 @@ class Order_DB:
                 print("DONE" * 5)
 
             conn.commit()
+            id_data = cursor.execute(
+                "SELECT order_id FROM orders WHERE order_date =?",
+                (str(order.order_date),),
+            )
+            return id_data.fetchone()[0]
 
-    def add_customer_to_db(self, customer: Customer):
+    def add_customer_to_db(self, customer: Customer) -> int:
         sql_cust = """INSERT INTO customers (customer_name, customer_email, customer_pwd) VALUES(?,?,?)"""
         with sqlite3.connect(self.dbpath) as conn:
             cursor = conn.cursor()
@@ -81,6 +84,11 @@ class Order_DB:
                 ),
             )
             conn.commit()
+            id_data = cursor.execute(
+                "SELECT customer_id FROM customers WHERE customer_name =?",
+                (customer.customer_name,),
+            )
+            return id_data.fetchone()[0]
 
     def add_product_to_db(self, product_name, product_price):
         sql_product = (
@@ -93,27 +101,25 @@ class Order_DB:
 
     def initialise_db(self):
         sql_statements = [
-            """CREATE TABLE IF NOT EXISTS orders (
+            """CREATE TABLE orders (
             order_id INTEGER PRIMARY KEY,
             order_date TEXT,
             customer_id INTEGER,
-            customer_name TEXT,
-            customer_email TEXT,
             order_items TEXT,
             item_price TEXT,
             item_qty TEXT,
             est_delivery TEXT,
             order_status TEXT 
         );""",
-            """CREATE TABLE IF NOT EXISTS products (
+            """CREATE TABLE products (
             product_name TEXT,
             product_price INT
         );""",
-            """CREATE TABLE IF NOT EXISTS customers (
+            """CREATE TABLE customers (
             customer_id INTEGER PRIMARY KEY,
             customer_name TEXT,
             customer_email TEXT,
-            customer_pwd TEXT,
+            customer_pwd TEXT
         );""",
         ]
         with sqlite3.connect(self.dbpath) as conn:

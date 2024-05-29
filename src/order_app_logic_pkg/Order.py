@@ -22,7 +22,7 @@ class Order:
 
     @order_id.setter
     def order_id(self, order_num: type[int]):
-        self._order_id = Order.order_id_base + "_" + order_num
+        self._order_id = order_num
 
     @property
     def order_date(self) -> date:
