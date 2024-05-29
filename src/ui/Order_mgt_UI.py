@@ -3,6 +3,7 @@ from order_app_logic_pkg.Order import Order
 from order_app_logic_pkg.OrderItem import OrderItem
 from order_app_logic_pkg.Postal_Order import Postal_Order
 from order_app_logic_pkg.Products import Products
+from db_app_logic.Order_DB import Order_DB
 
 
 class Order_mgt_UI:
