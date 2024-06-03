@@ -11,8 +11,9 @@ if __name__ == "__main__":
         )
     o_ui = Order_mgt_UI(choice)
 
-    for order in o_ui.orders:
-        print(str(order))
+    if choice != "3":
+        for order in o_ui.orders:
+            print(str(order))
 
     if choice == "1":
         print("Thank you for your purchase. Have a nice day.")

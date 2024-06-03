@@ -91,13 +91,19 @@ class Order_DB:
             return id_data.fetchone()[0]
 
     def add_product_to_db(self, product_name, product_price):
-        sql_product = (
-            """INSERT INTO products (product_name, product_price) VALUES(?,?)"""
-        )
+        sql_product = """INSERT INTO products (product_name, product_price) VALUES(?,?)"""
+        
         with sqlite3.connect(self.dbpath) as conn:
             cursor = conn.cursor()
             cursor.execute(sql_product, (product_name, product_price))
             conn.commit()
+
+    def view_all_orders(self):
+        sql_all = "SELECT * FROM orders"
+        with sqlite3.connect(self.dbpath) as conn:
+            cursor = conn.cursor()
+            all_orders = cursor.execute(sql_all)
+            return all_orders.fetchall()
 
     def initialise_db(self):
         sql_statements = [

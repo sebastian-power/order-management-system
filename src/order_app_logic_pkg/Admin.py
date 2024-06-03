@@ -3,13 +3,16 @@ from db_app_logic.Order_DB import Order_DB
 
 class Admin(Customer):
 
-    def __init__(self):
-        super.__init__()
+    def __init__(self, name, email, pwd):
+        super().__init__(name, email, pwd)
         self.dbmgt = Order_DB()
 
     def add_product(self, name, price):
         self.dbmgt.add_product_to_db(name, price)
-
-    def view_all_orders():
-        pass
-        #for each order: call print_order(order_type)
+        
+    def print_all_orders(self):
+        order_list = self.dbmgt.view_all_orders()
+        print("order_id,order_date,customer_id,order_items,item_price,item_qty,est_delivery,order_status")
+        for order in order_list:
+            print(order)
+        

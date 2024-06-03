@@ -21,8 +21,7 @@ class Order_mgt_UI:
         elif int(choice) == 2:
             self.orders = [self.create_postal_order()]
         elif int(choice) == 3:
-            pass
-            # self.adminUI()
+            self.adminUI()
         elif int(choice) == 4:
             self.orders = [self.access_existing_orders()]
 
@@ -171,5 +170,9 @@ class Order_mgt_UI:
 
         return anItem
     
-    # def adminUI(self):
-    #     self.admin = Admin()
+    def adminUI(self):
+        self.admin = Admin(self.cust_name, self.cust_email, self.cust_pwd)
+        action = int(input("Would you like to:\n(1): Add a product to the database?\n(2): View all orders?\n"))
+        if action == 2:
+            self.admin.print_all_orders()
+
