@@ -49,6 +49,7 @@ class Customer:
             self._customer_email = customer_email
 
     def search_my_orders(self):
+        print("bottom up testing! dsouza be happy :)")
         pass
         # search in databases for orders belongingto this customer
         # for each order found, call print_order(order_type)

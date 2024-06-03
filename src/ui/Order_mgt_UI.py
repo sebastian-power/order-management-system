@@ -24,6 +24,10 @@ class Order_mgt_UI:
             self.adminUI()
         elif int(choice) == 4:
             self.orders = [self.access_existing_orders()]
+        elif int(choice) == 4:
+            print("Signed in as admin.")
+            
+            # self.adminUI()
 
         # self.orders=[self.create_order(), self.create_postal_order()]
 
@@ -46,13 +50,15 @@ class Order_mgt_UI:
     def access_existing_orders(self):
         a_customer = Customer(self.cust_name, self.cust_email, self.cust_pwd)
         
-        exists = None #check if this customer exists in the database
+        exists = True #check if this customer exists in the database
         if exists:
-            Customer.search_my_orders()
+            orders = Customer.search_my_orders(self)
         else:
             print("Sorry, we could not find the user associated with these details.")
+
             #ask again for details
             #actually dont, that isnt worth any marks
+        return orders
 
         
 
