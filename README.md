@@ -101,9 +101,13 @@ The project is planned to be completed in 5 weeks. Observe that the project plan
 ![Online Gantt 20240604](https://github.com/sebastian-power/order-management-system/assets/140695410/3f684172-01b6-4b67-88d4-08af8c64114e)
 Key:
 Black - task grouping
+
 Green - all
+
 Orange - Olvier
+
 Blue - James
+
 Purple - Sebastian
 
 
