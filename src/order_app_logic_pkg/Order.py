@@ -1,7 +1,7 @@
 from datetime import date, datetime
 
+from order_app_logic_pkg.Customer import Customer
 
-from .Customer import Customer
 from .OrderItem import OrderItem
 
 

@@ -21,11 +21,10 @@ class Order_mgt_UI:
         elif int(choice) == 2:
             self.orders = [self.create_postal_order()]
         elif int(choice) == 3:
-            self.adminUI()
-        elif int(choice) == 4:
             self.orders = [self.access_existing_orders()]
         elif int(choice) == 4:
             print("Signed in as admin.")
+            self.adminUI()
             
             # self.adminUI()
 
@@ -178,7 +177,14 @@ class Order_mgt_UI:
     
     def adminUI(self):
         self.admin = Admin(self.cust_name, self.cust_email, self.cust_pwd)
-        action = int(input("Would you like to:\n(1): Add a product to the database?\n(2): View all orders?\n"))
-        if action == 2:
+        action = int(input("Would you like to:\n(1): Add a product to the database?\n(2): Remove a product from the database?\n(3): View all orders?\n"))
+        if action == 1:
+            name = input("Enter the new product name: ")
+            price = int(input("Enter the new product price:"))
+            self.admin.add_product(name, price)
+        elif action == 2:
+            name = input("Enter the product name: ")
+            self.admin.remove_product(name)
+        elif action == 3:
             self.admin.print_all_orders()
 

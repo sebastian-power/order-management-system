@@ -9,6 +9,9 @@ class Admin(Customer):
 
     def add_product(self, name, price):
         self.dbmgt.add_product_to_db(name, price)
+
+    def remove_product(self, name):
+        self.dbmgt.remove_product_from_db(name)
         
     def print_all_orders(self):
         order_list = self.dbmgt.view_all_orders()

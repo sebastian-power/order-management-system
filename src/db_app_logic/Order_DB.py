@@ -91,12 +91,23 @@ class Order_DB:
             return id_data.fetchone()[0]
 
     def add_product_to_db(self, product_name, product_price):
-        sql_product = """INSERT INTO products (product_name, product_price) VALUES(?,?)"""
-        
+        sql_product = (
+            """INSERT INTO products (product_name, product_price) VALUES(?,?)"""
+        )
+
         with sqlite3.connect(self.dbpath) as conn:
             cursor = conn.cursor()
             cursor.execute(sql_product, (product_name, product_price))
             conn.commit()
+        print(f"'{product_name}' added successfully")
+
+    def remove_product_from_db(self, product_name):
+        sql_product = """DELETE FROM products WHERE product_name=?"""
+        with sqlite3.connect(self.dbpath) as conn:
+            cursor = conn.cursor()
+            cursor.execute(sql_product, (product_name,))
+            conn.commit()
+        print(f"'{product_name}' removed successfully")
 
     def view_all_orders(self):
         sql_all = "SELECT * FROM orders"
