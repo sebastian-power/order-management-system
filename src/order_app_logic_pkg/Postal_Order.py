@@ -1,13 +1,12 @@
 from datetime import datetime, timedelta
 
-from .Customer import Customer
 from .Order import Order
 
 
 class Postal_Order(Order):
     VALID_STATES = ["Initiated", "Packed", "Shipped", "Delivered"]
 
-    def __init__(self, customer: Customer):
+    def __init__(self, customer):
         super().__init__(customer)
 
         # cannot estimate time yet - user must finish ordering process

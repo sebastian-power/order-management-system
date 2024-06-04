@@ -1,6 +1,5 @@
 from datetime import date, datetime
 
-from order_app_logic_pkg.Customer import Customer
 
 from .OrderItem import OrderItem
 
@@ -9,7 +8,7 @@ class Order:
     order_id_base = "Order_"
     order_num = 0  # ideally should be from a file
 
-    def __init__(self, customer: Customer):
+    def __init__(self, customer):
         Order.order_num += 1
         # self.order_id = 1 return order_id from db
         self.customer = customer

@@ -1,5 +1,5 @@
 from datetime import datetime
-
+from db_app_logic.Order_DB import Order_DB
 
 class Customer:
     this_year = datetime.now().year
@@ -49,15 +49,8 @@ class Customer:
             self._customer_email = customer_email
 
     def search_my_orders(self):
-        print("bottom up testing! dsouza be happy :)")
-        pass
-        # search in databases for orders belongingto this customer
-        # for each order found, call print_order(order_type)
+        return Order_DB().search_customer_orders(self.cust_id)
 
-    def print_orders(order):
-        pass
-        # if order: print using order.py method
-        # if postal_order: print using postal_order.py method
 
     def __str__(self) -> type[str]:
         return (

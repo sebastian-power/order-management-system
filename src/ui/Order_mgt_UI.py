@@ -49,14 +49,15 @@ class Order_mgt_UI:
     def access_existing_orders(self):
         a_customer = Customer(self.cust_name, self.cust_email, self.cust_pwd)
         
-        exists = True #check if this customer exists in the database
+        exists = self.db_manager.customer_id(self.cust_name, self.cust_email, self.cust_pwd)
+        print(exists)
         if exists:
-            orders = Customer.search_my_orders(self)
+            a_customer.cust_id = int(exists)
+            orders = a_customer.search_my_orders()
+            for order in orders:
+                print(order)
         else:
             print("Sorry, we could not find the user associated with these details.")
-
-            #ask again for details
-            #actually dont, that isnt worth any marks
         return orders
 
         
