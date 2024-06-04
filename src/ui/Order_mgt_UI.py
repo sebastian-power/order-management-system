@@ -1,10 +1,10 @@
+from db_app_logic.Order_DB import Order_DB
+from order_app_logic_pkg.Admin import Admin
 from order_app_logic_pkg.Customer import Customer
 from order_app_logic_pkg.Order import Order
 from order_app_logic_pkg.OrderItem import OrderItem
 from order_app_logic_pkg.Postal_Order import Postal_Order
 from order_app_logic_pkg.Products import Products
-from db_app_logic.Order_DB import Order_DB
-from order_app_logic_pkg.Admin import Admin
 
 
 class Order_mgt_UI:
@@ -21,11 +21,11 @@ class Order_mgt_UI:
         elif int(choice) == 2:
             self.orders = [self.create_postal_order()]
         elif int(choice) == 3:
-            self.orders = [self.access_existing_orders()]
+            self.orders = self.access_existing_orders()
         elif int(choice) == 4:
             print("Signed in as admin.")
             self.adminUI()
-            
+
             # self.adminUI()
 
         # self.orders=[self.create_order(), self.create_postal_order()]
@@ -45,22 +45,40 @@ class Order_mgt_UI:
             #         print("You have used white space characters. Try again")
             #         done=False
         return name
-    
+
     def access_existing_orders(self):
         a_customer = Customer(self.cust_name, self.cust_email, self.cust_pwd)
-        
-        exists = self.db_manager.customer_id(self.cust_name, self.cust_email, self.cust_pwd)
+
+        exists = self.db_manager.customer_id(
+            self.cust_name, self.cust_email, self.cust_pwd
+        )
         print(exists)
         if exists:
             a_customer.cust_id = int(exists)
             orders = a_customer.search_my_orders()
+            order_objects = []
             for order in orders:
-                print(order)
+                cus_info = self.db_manager.get_customer_from_id(order[2])
+                cus = Customer(cus_info[1], cus_info[2], cus_info[3])
+                cus.cust_id = order[2]
+                order_obj = Order(cus)
+                order_obj.order_date = order[1]
+                order_obj.order_id = order[0]
+                o_items = [
+                    OrderItem(item_name, item_price, item_quantity)
+                    for item_name, item_price, item_quantity in zip(
+                        order[3].rstrip(",").split(","),
+                        list(map(int,order[4].rstrip(",").split(","))),
+                        list(map(int,order[5].rstrip(",").split(","))),
+                    )
+                ]
+                for item in o_items:
+                    order_obj.add_item(item)
+                order_objects.append(order_obj)
+            return order_objects
         else:
             print("Sorry, we could not find the user associated with these details.")
         return orders
-
-        
 
     def get_cust_email(self) -> type[str]:
         done = False
@@ -88,7 +106,9 @@ class Order_mgt_UI:
             # forbidden = [" ", "\n", "\r", "\t", "\b"]
             name = input("Enter your password. \nLength should be between 5-20 chars. ")
             if len(name) < 5 or len(name) > 20:
-                print("Password should be between 5-20 characters (inclusive). Try again")
+                print(
+                    "Password should be between 5-20 characters (inclusive). Try again"
+                )
                 done = False
             # Check if any forbidden characters are in the name
             #'any' returns true if any of the forbidden char is in name
@@ -115,7 +135,9 @@ class Order_mgt_UI:
             if more in ["Y", "y"]:
                 done = False
         a_postal_order.set_delivery_date()
-        a_postal_order.customer.cust_id = self.db_manager.add_customer_to_db(a_postal_order.customer)
+        a_postal_order.customer.cust_id = self.db_manager.add_customer_to_db(
+            a_postal_order.customer
+        )
         a_postal_order.order_id = self.db_manager.add_order_to_db(a_postal_order)
         return a_postal_order
 
@@ -175,10 +197,14 @@ class Order_mgt_UI:
         anItem = OrderItem(item_name, item_unit_price, item_qty)
 
         return anItem
-    
+
     def adminUI(self):
         self.admin = Admin(self.cust_name, self.cust_email, self.cust_pwd)
-        action = int(input("Would you like to:\n(1): Add a product to the database?\n(2): Remove a product from the database?\n(3): View all orders?\n"))
+        action = int(
+            input(
+                "Would you like to:\n(1): Add a product to the database?\n(2): Remove a product from the database?\n(3): View all orders?\n"
+            )
+        )
         if action == 1:
             name = input("Enter the new product name: ")
             price = int(input("Enter the new product price:"))
@@ -188,4 +214,3 @@ class Order_mgt_UI:
             self.admin.remove_product(name)
         elif action == 3:
             self.admin.print_all_orders()
-

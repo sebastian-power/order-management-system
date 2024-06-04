@@ -134,6 +134,13 @@ class Order_DB:
             cursor = conn.cursor()
             all_orders = cursor.execute(sql_all, (customer_id,))
             return all_orders
+    
+    def get_customer_from_id(self, customer_id):
+        sql_all = """SELECT * FROM customers WHERE customer_id=?"""
+        with sqlite3.connect(self.dbpath) as conn:
+            cursor = conn.cursor()
+            cust_info = cursor.execute(sql_all, (customer_id,)).fetchone()
+            return cust_info
 
 
     def initialise_db(self):

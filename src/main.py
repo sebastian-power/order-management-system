@@ -11,7 +11,7 @@ if __name__ == "__main__":
         )
     o_ui = Order_mgt_UI(choice)
 
-    if choice == "1" or choice == "2":
+    if choice == "1" or choice == "2" or choice == "3":
         for order in o_ui.orders:
             print(str(order))
 

@@ -28,8 +28,11 @@ class Order:
         return self._order_date
 
     @order_date.setter
-    def order_date(self, todays_date: datetime):
-        self._order_date = date(todays_date.year, todays_date.month, todays_date.day)
+    def order_date(self, todays_date):
+        if isinstance(todays_date, str):
+            self._order_date = date(*map(int,"2024-06-04".split('-')))
+        elif isinstance(todays_date, datetime):
+            self._order_date = date(todays_date.year, todays_date.month, todays_date.day)
 
     def add_item(self, item: OrderItem):
         self.items.append(item)
