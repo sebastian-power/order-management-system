@@ -96,8 +96,21 @@ As a Manager, I want to be able to view all of the pending orders in the system,
 </ol>
 
 ## 4. Project Plan<a name="plan"></a>
-The project is planned to be completed in 5 weeks. Observe that the project plan includes planning, analysis, design, implementation and testing tasks from the Software Development Life Cycle (SDLC). It also includes details such as how much of the work is accomplished and the roles of each team member. Note: Please remind me to upload an editable version of this plan on Google Classroom.
-Project Management plan here(fake gantt chart)
+The project is planned to be completed in 5 weeks. Observe that the project plan includes planning, analysis, design, implementation and testing tasks from the Software Development Life Cycle (SDLC). It also includes details such as how much of the work is accomplished and the roles of each team member.
+
+![Online Gantt 20240604](https://github.com/sebastian-power/order-management-system/assets/140695410/3f684172-01b6-4b67-88d4-08af8c64114e)
+Key:
+Black - task grouping
+
+Green - all
+
+Orange - Olvier
+
+Blue - James
+
+Purple - Sebastian
+
+
 <i>Figure 3: Project Management Plan</i>
 ## 5. System Class Diagram<a name="sys_diagram"></a>
 ### 5.1 Classes in the OMS<a name="oms_classes"></a>
