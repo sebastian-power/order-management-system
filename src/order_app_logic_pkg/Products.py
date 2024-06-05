@@ -1,12 +1,7 @@
-import csv
-from pathlib import Path
 from db_app_logic.Order_DB import Order_DB
 
 class Products:
     def __init__(self) -> None:
-        products_path = [i for i in Path(__file__).resolve().parents][2].joinpath(
-            str(Path("assets/data_files/products.csv"))
-        )
         products_arr = Order_DB().get_products()
         self._products_dicts = [{"name": product[0], "unit_price": str(product[1])} for product in products_arr]
         self._products_string = [
