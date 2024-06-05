@@ -33,7 +33,11 @@ class Order_DB:
             statement = """INSERT INTO orders (order_date, customer_id, order_items, item_price, item_qty, est_delivery, order_status) VALUES (?,?,?,?,?,?,?)"""
         elif isinstance(order, Order):
             statement = """INSERT INTO orders (order_date, customer_id, order_items, item_price, item_qty) VALUES (?,?,?,?,?)"""
-        cust_id_searched = self.customer_id(order.customer.customer_name, order.customer.customer_email, order.customer.customer_pwd)
+        cust_id_searched = self.customer_id(
+            order.customer.customer_name,
+            order.customer.customer_email,
+            order.customer.customer_pwd,
+        )
         if cust_id_searched:
             order.customer.cust_id = cust_id_searched
         with sqlite3.connect(self.dbpath) as conn:
@@ -116,25 +120,27 @@ class Order_DB:
             cursor = conn.cursor()
             all_orders = cursor.execute(sql_all)
             return all_orders.fetchall()
-    
+
     def customer_id(self, customer_name, customer_email, customer_pwd):
         sql_cus = """SELECT customer_id FROM customers WHERE customer_name=? AND customer_email=? AND customer_pwd=?"""
         with sqlite3.connect(self.dbpath) as conn:
             cursor = conn.cursor()
-            customer_id = cursor.execute(sql_cus, (customer_name, customer_email, customer_pwd))
+            customer_id = cursor.execute(
+                sql_cus, (customer_name, customer_email, customer_pwd)
+            )
             order_done = customer_id.fetchone()[0]
             if order_done is not None:
                 return order_done
             else:
                 return None
-    
+
     def search_customer_orders(self, customer_id):
         sql_all = """SELECT * FROM orders WHERE customer_id=?"""
         with sqlite3.connect(self.dbpath) as conn:
             cursor = conn.cursor()
             all_orders = cursor.execute(sql_all, (customer_id,))
             return all_orders
-    
+
     def get_customer_from_id(self, customer_id):
         sql_all = """SELECT * FROM customers WHERE customer_id=?"""
         with sqlite3.connect(self.dbpath) as conn:
@@ -142,6 +148,30 @@ class Order_DB:
             cust_info = cursor.execute(sql_all, (customer_id,)).fetchone()
             return cust_info
 
+    def get_products(self):
+        sql_all = """SELECT * FROM products"""
+        with sqlite3.connect(self.dbpath) as conn:
+            cursor = conn.cursor()
+            products = cursor.execute(sql_all).fetchall()
+            print(products)
+            return products
+
+    def check_for_admin(self, usr, email, pwd):
+        sql_check = """SELECT * FROM admins WHERE admin_usr=? AND admin_email=? AND admin_pwd=?"""
+        with sqlite3.connect(self.dbpath) as conn:
+            cursor = conn.cursor()
+            admin_found = cursor.execute(sql_check, (usr, email, pwd)).fetchone()
+            return admin_found
+
+    def add_admin_to_db(self, usr, email, pwd):
+        sql_add = (
+            """INSERT INTO admins (admin_usr, admin_email, admin_pwd) VALUES(?,?,?)"""
+        )
+        with sqlite3.connect(self.dbpath) as conn:
+            cursor = conn.cursor()
+            cursor.execute(sql_add, (usr, email, pwd))
+            conn.commit()
+        print(f"{usr} added succesfully")
 
     def initialise_db(self):
         sql_statements = [
@@ -165,9 +195,44 @@ class Order_DB:
             customer_email TEXT,
             customer_pwd TEXT
         );""",
+            """CREATE TABLE admins (
+            admin_usr TEXT,
+            admin_email TEXT,
+            admin_pwd TEXT
+        );""",
+        ]
+        insert_defaults = [
+            """INSERT INTO admins (admin_usr, admin_email, admin_pwd) VALUES(?,?,?),(?,?,?),(?,?,?)""",
+            """INSERT INTO products (product_name, product_price) VALUES(?,?),(?,?),(?,?),(?,?)""",
+        ]
+        insert_values = [
+            (
+                "seb",
+                "seb@mail",
+                "password",
+                "james",
+                "james@mail",
+                "password",
+                "oliver",
+                "oliwoli@mail",
+                "password",
+            ),
+            (
+                "Pen",
+                2,
+                "Computer Disk",
+                200,
+                "Scientific Calculator",
+                100,
+                "Sun Glasses",
+                300,
+            ),
         ]
         with sqlite3.connect(self.dbpath) as conn:
             cursor = conn.cursor()
             for statement in sql_statements:
                 cursor.execute(statement)
+            conn.commit()
+            for default, values in zip(insert_defaults, insert_values):
+                cursor.execute(default, values)
             conn.commit()

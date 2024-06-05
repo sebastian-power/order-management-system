@@ -23,7 +23,6 @@ class Order_mgt_UI:
         elif int(choice) == 3:
             self.orders = self.access_existing_orders()
         elif int(choice) == 4:
-            print("Signed in as admin.")
             self.adminUI()
 
             # self.adminUI()
@@ -68,8 +67,8 @@ class Order_mgt_UI:
                     OrderItem(item_name, item_price, item_quantity)
                     for item_name, item_price, item_quantity in zip(
                         order[3].rstrip(",").split(","),
-                        list(map(int,order[4].rstrip(",").split(","))),
-                        list(map(int,order[5].rstrip(",").split(","))),
+                        list(map(int, order[4].rstrip(",").split(","))),
+                        list(map(int, order[5].rstrip(",").split(","))),
                     )
                 ]
                 for item in o_items:
@@ -200,9 +199,21 @@ class Order_mgt_UI:
 
     def adminUI(self):
         self.admin = Admin(self.cust_name, self.cust_email, self.cust_pwd)
+        if (
+            self.db_manager.check_for_admin(
+                self.admin.customer_name,
+                self.admin.customer_email,
+                self.admin.customer_pwd,
+            )
+            is None
+        ):
+            print("Incorrect username or password")
+            return
+        else:
+            print("Signed in as admin.")
         action = int(
             input(
-                "Would you like to:\n(1): Add a product to the database?\n(2): Remove a product from the database?\n(3): View all orders?\n"
+                "Would you like to:\n(1): Add a product to the database?\n(2): Remove a product from the database?\n(3): View all orders?\n(4): Add an admin?\n"
             )
         )
         if action == 1:
@@ -214,3 +225,8 @@ class Order_mgt_UI:
             self.admin.remove_product(name)
         elif action == 3:
             self.admin.print_all_orders()
+        elif action == 4:
+            name = input("Enter the new admin name: ")
+            email = input("Enter the new admin email: ")
+            password = input("Enter the new admin password: ")
+            self.admin.add_admin(name, email, password)

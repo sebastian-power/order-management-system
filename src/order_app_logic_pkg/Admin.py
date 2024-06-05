@@ -18,4 +18,7 @@ class Admin(Customer):
         print("order_id,order_date,customer_id,order_items,item_price,item_qty,est_delivery,order_status")
         for order in order_list:
             print(order)
+    
+    def add_admin(self, name, email, pwd):
+        self.dbmgt.add_admin_to_db(name, email, pwd)
         
