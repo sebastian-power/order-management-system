@@ -219,7 +219,7 @@ class Order_mgt_UI:
         )
         if action == 1:
             name = input("Enter the new product name: ")
-            price = int(input("Enter the new product price:"))
+            price = int(input("Enter the new product price: "))
             self.admin.add_product(name, price)
         elif action == 2:
             name = input("Enter the product name: ")
