@@ -398,6 +398,12 @@ From the earlier discussion on its intrinsic documentation in section 14.1, we k
 The test data in the IO table can be used to create a test suite for has_partial_valid_state_sequence. A test suite was developed based on the IO table entries. This is shown in the figure below.
 ![image](https://github.com/sebastian-power/order-management-system/assets/52031320/a512ceca-ffb5-4ac2-829c-d47c53bd2a7f)
 Observe that all the test cases in the IO tables are tested. 
+
+User Stories IPO Table: 
+![Image](https://github.com/sebastian-power/order-management-system/blob/main/assets/images/User%20Stories%20IPO%20Table%201.png)
+![Image](https://github.com/sebastian-power/order-management-system/blob/main/assets/images/User%20Stories%20IPO%20Table%202.png)
+
+
 ### 15.2 White box testing of OMS<a name="white_box"></a>
 The code passed all the test cases except test case number 10. White box testing and debugging using breakpoints and line-by-line tracing was used to identify a logical error in Postal_Order.  Consequently, statement numbers 61 to 63 were added to fix the error.
 ![image](https://github.com/sebastian-power/order-management-system/assets/52031320/f3f84bc1-6b0f-41fc-8529-c4ef7d4075cc)
