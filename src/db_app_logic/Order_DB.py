@@ -154,7 +154,6 @@ class Order_DB:
         with sqlite3.connect(self.dbpath) as conn:
             cursor = conn.cursor()
             products = cursor.execute(sql_all).fetchall()
-            print(products)
             return products
 
     def check_for_admin(self, usr, email, pwd):
