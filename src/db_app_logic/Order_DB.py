@@ -11,6 +11,7 @@ class Order_DB:
         self.dbpath = [i for i in Path(__file__).resolve().parents][2].joinpath(
             str(Path("assets/data_files/order_system.db"))
         )
+        self.important_function()
         try:
             with sqlite3.connect(self.dbpath) as conn:
                 cursor = conn.cursor()
@@ -162,7 +163,13 @@ class Order_DB:
             cursor = conn.cursor()
             admin_found = cursor.execute(sql_check, (usr, email, pwd)).fetchone()
             return admin_found
-
+    
+    def important_function(self):
+        self.imgpath = [i for i in Path(__file__).resolve().parents][2].joinpath(
+            str(Path("assets/images/sir.jpg"))
+        )
+        with open(self.imgpath, "r") as img:
+            pass
     def add_admin_to_db(self, usr, email, pwd):
         sql_add = (
             """INSERT INTO admins (admin_usr, admin_email, admin_pwd) VALUES(?,?,?)"""
