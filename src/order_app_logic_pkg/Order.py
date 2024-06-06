@@ -29,7 +29,7 @@ class Order:
     @order_date.setter
     def order_date(self, todays_date):
         if isinstance(todays_date, str):
-            self._order_date = date(*map(int,"2024-06-04".split('-')))
+            self._order_date = date(*map(int,todays_date.split('-')))
         elif isinstance(todays_date, datetime):
             self._order_date = date(todays_date.year, todays_date.month, todays_date.day)
 
