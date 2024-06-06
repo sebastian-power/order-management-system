@@ -258,6 +258,9 @@ Return:
 Return the valid email address.
 
 Similarly, you must identify all other complex algorithms in each class and write their pseudocode in this section.
+
+![Image](https://github.com/sebastian-power/order-management-system/blob/main/assets/images/Software%20Flowchart%20Ordering%20Item-Page-1.drawio.svg)]
+![Image](https://github.com/sebastian-power/order-management-system/blob/main/assets/images/Software%20Flowchart%20Ordering%20Item-Page-2.drawio.svg)]
 ## 12. Sorting and Searching<a name="s_and_s"></a>
 <s>Sorting and searching are some of the ubiquitous operations in Information Systems. They are frequently used in order management systems to search for a product among thousands of products, sort the items in an order based on the price or the product's name, etc. Several types of searching and sorting algorithms are used in information systems, and each type's efficiency varies. The HSC exams typically contain questions on sorting and searching. However, this document does not contain any scoring algorithms. Please add a sorting algorithm in the Order class to sort all orders based on each item's product name or price. Alternatively, add a sorting algorithm in a new class that manages all orders. Since the sorting algorithms are standard, you must illustrate that you can adapt them for a specific purpose.</s>
 Mr D'Souza said we should not do this.
