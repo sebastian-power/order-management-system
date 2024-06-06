@@ -352,6 +352,140 @@ Intrinsic documentation exists within the code and directly relates to its reada
     #["Initiated", "Packed", "Shipped", "Delivered"]
     def has_partial_valid_state_sequence(self,states:type[list[int]], valid_sequence:list[type[str]])->type[bool]:
 ```
+
+Sure, here is a more concise version of the documentation with placeholders where you can insert your own file names and specific details.
+
+---
+
+# Project Documentation
+
+## Table of Contents
+1. Introduction
+2. File Handling Logic
+3. Source Code Organization
+4. Software Development Life Cycle Phases
+5. Installation Guide
+6. Source Code (Appendix)
+7. Intrinsic Documentation
+
+---
+
+## 1. Introduction
+
+
+**Description:** This project is developed using Python and SQL for the database. It employs Object-Oriented Programming (OOP) principles for the overall structure.
+
+---
+
+## 2. File Handling Logic
+
+**Description:** The project includes logic to store, retrieve, and update data in a file. The file format used is JSON.
+
+### File Handling Operations:
+
+1. **Storing Data:**
+   - Function: `store_data(data, file_path)`
+   - Description: Stores the given data into the specified file.
+   - Parameters:
+     - `data` (dict): The data to be stored.
+     - `file_path` (str): The path to the file where data will be stored.
+   - Return: None
+
+2. **Retrieving Data:**
+   - Function: `retrieve_data(file_path)`
+   - Description: Retrieves data from the specified file.
+   - Parameters:
+     - `file_path` (str): The path to the file from which data will be retrieved.
+   - Return: `data` (dict): The retrieved data.
+
+3. **Updating Data:**
+   - Function: `update_data(new_data, file_path)`
+   - Description: Updates the existing data in the specified file with new data.
+   - Parameters:
+     - `new_data` (dict): The new data to be added/updated.
+     - `file_path` (str): The path to the file where data will be updated.
+   - Return: None
+
+### File Format:
+
+The data is stored in JSON format. Example:
+
+```json
+{
+    "key1": "value1",
+    "key2": "value2"
+}
+```
+
+---
+
+## 3. Source Code Organization
+
+The project is organized into the following modules:
+
+1. **`main.py`:** The entry point of the application.
+2. **`admin.py`:** Inherits from Customer, for admin operations
+3. **`Order_DB.py`:** Manages file operations (store, retrieve, update).
+4. **`Customer.py`:** Manages the customer class
+5. **`Order.py`:** For ordering products
+6. **`Postal_Order.py`:** For ordering productsas store orders
+7. **`Products.py`:** Logic for ordering products
+8. **`Order_mgt_UI.py`:** CLI setup for the user to interact with
+
+---
+
+## 4. Software Development Life Cycle Phases
+
+### Requirement Analysis
+
+- Gathered requirements for file handling, database interactions, and OOP structure.
+
+### Design
+
+- Designed the overall architecture with clear module separation.
+
+### Implementation
+
+- Developed main application logic in `main.py`.
+- Implemented UI logic in `Order_mgt_UI.py`.
+- Implemented database operations in `Order_DB.py`.
+
+### Testing
+
+- Performed unit testing for each module.
+- Conducted integration testing to ensure all components work together.
+
+### Deployment
+
+- Created installation guide for deploying the application from GitHub.
+
+### Maintenance
+
+- Documented the process for updating and maintaining the code.
+
+---
+
+## 5. Installation Guide
+
+To install the program from GitHub, follow these steps:
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/sebastian-power/order-management-system.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd order-management-system
+   ```
+4. Run the application:
+   ```sh
+   python main.py
+   ```
+
+---
+
+The full source code is available at this link: https://github.com/sebastian-power/order-management-system.git
+
 ### 14.2 Organization of source code files and modules<a name="src_org"></a>
 Organising the project files and assets into appropriate directories is crucial for maintaining a clean and efficient codebase. The directory structure of the OMS project is as follows:
 
