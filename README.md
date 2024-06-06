@@ -492,31 +492,9 @@ The full source code is available at this link: https://github.com/sebastian-pow
 ### 14.2 Organization of source code files and modules<a name="src_org"></a>
 Organising the project files and assets into appropriate directories is crucial for maintaining a clean and efficient codebase. The directory structure of the OMS project is as follows:
 
-!!! INSERT DIAGRAM OF THE STRUCTURE OF THE DOCUMENT HERE!!!
+![image](https://github.com/sebastian-power/order-management-system/assets/52031320/da7948c9-fea8-49ba-8569-c1c61138795d)
 
-!!! INSERT DIAGRAM OF THE STRUCTURE OF THE DOCUMENT HERE!!!
-
-!!! INSERT DIAGRAM OF THE STRUCTURE OF THE DOCUMENT HERE!!!
-
-!!! INSERT DIAGRAM OF THE STRUCTURE OF THE DOCUMENT HERE!!!
-
-!!! INSERT DIAGRAM OF THE STRUCTURE OF THE DOCUMENT HERE!!!
-
-
-
-REMOVE THIS!!!!
-
-|
-
-|
-
-|
-
-V
-![image](https://github.com/sebastian-power/order-management-system/assets/52031320/0aa6008a-46c0-40a9-8413-f13bb97bfdf3)
-Note that some of the directories are empty, but the available structure makes it easy to locate where, for example, a Products_DB.py or a products.txt file should be placed.
-Note: Python can throw ModuleNotFoundError or an import error if the import statements are not correctly specified when the source file(s) need to import another module (s). A module is a Python file only when another file imports it. Moreover, a module may use relative import or absolute import. The advantages of relative imports are conciseness and the ability to rearrange the paths of large packages without editing the paths to the sub-packages. However, relative imports are only sometimes as readable as absolute ones.  For more information on the difference between relative and absolute imports, read Absolute and Relative Imports in Python - GeeksforGeeks.
-The import statements in the various files for the given directory structure in the OMS project are provided in the above directory structure to illustrate how the relative and absolute imports were used.  
+This shows the entire file structure.  
 
 ### 14.3 Github policies<a name="git_policy"></a>
 It was strong policy that nobody commit to main, ever, under any circumstances, even for small changes, no matter what, come hell or high water, come rain or shine, for love or money, till the cows come home, until pigs fly, under pain of death, do or die, in sickness and in health, through thick and thin, over my dead body, when hell freezes over, till kingdom come, come what may, against all odds, in a New York minute, until the end of time, by hook or by crook, in a pig's eye, by the skin of your teeth, for all the tea in China, when the stars align, till the last dog dies, and especially not Oliver or James. <s>Seb can push to main whenever he feels like, for some reason.</s> This was to ensure that there would be less merge errors.
