@@ -4,7 +4,7 @@ from db_app_logic.Order_DB import Order_DB
 class Customer:
     this_year = datetime.now().year
     cust_id_base = "Cust_" + str(this_year)
-    cust_num = 0  # ideally this should be initialized from a file
+    cust_num = 0
 
     def __init__(
         self,
