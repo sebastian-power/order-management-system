@@ -158,7 +158,8 @@ class Order_mgt_UI:
                     correct_more = False
             if more in ["Y", "y"]:
                 done = False
-        self.db_manager.add_order_to_db(an_order)
+        an_order.customer.cust_id = self.db_manager.add_customer_to_db(an_order.customer)
+        an_order.order_id = self.db_manager.add_order_to_db(an_order)
         return an_order
 
     def create_order_item(self) -> OrderItem:

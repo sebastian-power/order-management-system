@@ -5,7 +5,6 @@ from .OrderItem import OrderItem
 
 
 class Order:
-    order_id_base = "Order_"
     order_num = 0  # ideally should be from a file
 
     def __init__(self, customer):

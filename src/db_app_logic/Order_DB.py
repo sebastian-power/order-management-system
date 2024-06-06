@@ -128,9 +128,9 @@ class Order_DB:
             customer_id = cursor.execute(
                 sql_cus, (customer_name, customer_email, customer_pwd)
             )
-            order_done = customer_id.fetchone()[0]
+            order_done = customer_id.fetchone()
             if order_done is not None:
-                return order_done
+                return order_done[0]
             else:
                 return None
 
