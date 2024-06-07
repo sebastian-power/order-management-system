@@ -158,7 +158,9 @@ class Order_mgt_UI:
                     correct_more = False
             if more in ["Y", "y"]:
                 done = False
-        an_order.customer.cust_id = self.db_manager.add_customer_to_db(an_order.customer)
+        an_order.customer.cust_id = self.db_manager.add_customer_to_db(
+            an_order.customer
+        )
         an_order.order_id = self.db_manager.add_order_to_db(an_order)
         return an_order
 
@@ -172,8 +174,8 @@ class Order_mgt_UI:
         correct_choice = False
         while not correct_choice:
             correct_choice = True
-            choice = input("Enter your choice 1-4: ")
-            if choice not in ["1", "2", "3", "4"]:
+            choice = input(f"Enter your choice 1-{len(p._products_dicts)}: ")
+            if int(choice) not in range(1, len(p._products_dicts) + 1):
                 print("Your entry was incorrect. Try again")
                 correct_choice = False
         item_id = int(choice)
