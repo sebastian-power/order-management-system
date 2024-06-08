@@ -478,17 +478,18 @@ The project is organized into the following modules:
 
 To install the program from GitHub, follow these steps:
 
-1. Clone the repository:
+1. Install git-lfs if not already installed. (<a href="https://github.com/git-lfs/git-lfs?utm_source=gitlfs_site&utm_medium=installation_link&utm_campaign=gitlfs#installing">Instructions Here</a>)
+2. Clone the repository:
    ```sh
    git clone https://github.com/sebastian-power/order-management-system.git
    ```
-2. Navigate to the project directory:
+3. Navigate to the project directory:
    ```sh
    cd order-management-system
    ```
 4. Run the application:
    ```sh
-   python main.py
+   python src/main.py
    ```
 
 ---
