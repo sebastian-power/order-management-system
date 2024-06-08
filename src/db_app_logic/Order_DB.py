@@ -21,15 +21,15 @@ class Order_DB:
         # check if order_management system exists, if not run init file to create tables
 
     def add_order_to_db(self, order):
-        self.i_names = ""
+        i_names = ""
         for item in order.items:
-            self.i_names += f"{item.name},"
-        self.i_prices = ""
+            i_names += f"{item.name},"
+        i_prices = ""
         for item in order.items:
-            self.i_prices += f"{item.price},"
-        self.i_qtys = ""
+            i_prices += f"{item.price},"
+        i_qtys = ""
         for item in order.items:
-            self.i_qtys += f"{item.qty},"
+            i_qtys += f"{item.qty},"
         if isinstance(order, Postal_Order):
             statement = """INSERT INTO orders (order_date, customer_id, order_items, item_price, item_qty, est_delivery, order_status) VALUES (?,?,?,?,?,?,?)"""
         elif isinstance(order, Order):
@@ -49,9 +49,9 @@ class Order_DB:
                     (
                         str(order.order_date),
                         order.customer.cust_id,
-                        self.i_names,
-                        self.i_prices,
-                        self.i_qtys,
+                        i_names,
+                        i_prices,
+                        i_qtys,
                         order.o_delivery_date,
                         order.current_state,
                     ),
@@ -63,9 +63,9 @@ class Order_DB:
                     (
                         str(order.order_date),
                         order.customer.cust_id,
-                        self.i_names,
-                        self.i_prices,
-                        self.i_qtys,
+                        i_names,
+                        i_prices,
+                        i_qtys,
                     ),
                 )
                 print("DONE" * 5)
@@ -162,13 +162,14 @@ class Order_DB:
             cursor = conn.cursor()
             admin_found = cursor.execute(sql_check, (usr, email, pwd)).fetchone()
             return admin_found
-    
+
     def important_function(self):
         self.imgpath = [i for i in Path(__file__).resolve().parents][2].joinpath(
             str(Path("assets/images/sir.jpg"))
         )
         with open(self.imgpath, "r") as img:
             pass
+
     def add_admin_to_db(self, usr, email, pwd):
         sql_add = (
             """INSERT INTO admins (admin_usr, admin_email, admin_pwd) VALUES(?,?,?)"""

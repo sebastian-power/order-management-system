@@ -1,5 +1,7 @@
 from datetime import datetime
+
 from db_app_logic.Order_DB import Order_DB
+
 
 class Customer:
     this_year = datetime.now().year
@@ -51,11 +53,10 @@ class Customer:
     def search_my_orders(self):
         return Order_DB().search_customer_orders(self.cust_id)
 
-
     def __str__(self) -> type[str]:
         return (
             "Customer details are:\n"
-            + f"Customer ID ={self.cust_id:20}"
-            + f"Customer name ={self.customer_name:20}"
-            + f"Customer email ={self.customer_email:30}\n"
+            + f"Customer ID = {str(self.cust_id):20} "
+            + f"Customer name = {self.customer_name:20}"
+            + f"Customer email = {self.customer_email:30}\n"
         )

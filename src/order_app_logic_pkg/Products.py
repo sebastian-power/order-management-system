@@ -1,9 +1,13 @@
 from db_app_logic.Order_DB import Order_DB
 
+
 class Products:
     def __init__(self) -> None:
         products_arr = Order_DB().get_products()
-        self._products_dicts = [{"name": product[0], "unit_price": str(product[1])} for product in products_arr]
+        self._products_dicts = [
+            {"name": product[0], "unit_price": str(product[1])}
+            for product in products_arr
+        ]
         self._products_string = [
             {
                 f"{counter+1}. {'name':4}": f"{product['name']:25}",

@@ -1,6 +1,5 @@
 from datetime import date, datetime
 
-
 from .OrderItem import OrderItem
 
 
@@ -53,8 +52,8 @@ class Order:
         star_line = "-" * 100 + "\n"
         order_header_details = (
             "Order Header\n"
-            + f"Order ID:{self.order_id:20}"
-            + f"Order date:{self.order_date}\n"
+            + f"Order ID: {str(self.order_id):20} "
+            + f"Order date: {self.order_date}\n"
         )
         customer_details = str(self.customer)
         item_details = "Order items are:\n" + "\n".join(map(str, self.items)) + "\n"
