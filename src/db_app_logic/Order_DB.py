@@ -167,8 +167,8 @@ class Order_DB:
         self.imgpath = [i for i in Path(__file__).resolve().parents][2].joinpath(
             str(Path("assets/images/sir.jpg"))
         )
-        with open(self.imgpath, "r") as img:
-            pass
+        img = open(self.imgpath, "r")
+        img.close()
 
     def add_admin_to_db(self, usr, email, pwd):
         sql_add = (
